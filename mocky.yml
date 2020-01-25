@@ -8,6 +8,6 @@ output:
   ./cabify-mobile-challengeTests
 args:
   testable:
-  - cabify-mobile-challenge
+  - cabify_mobile_challenge
   import:
   - RxSwift
