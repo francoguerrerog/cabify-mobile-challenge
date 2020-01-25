@@ -1,0 +1,13 @@
+sources:
+  include:
+    - ./cabify-mobile-challenge
+    - ./cabify-mobile-challengeTests
+templates:
+  - ./Pods/SwiftyMocky/Sources/Templates
+output:
+  ./cabify-mobile-challengeTests
+args:
+  testable:
+  - cabify-mobile-challenge
+  import:
+  - RxSwift
