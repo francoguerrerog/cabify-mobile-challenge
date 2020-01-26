@@ -2,7 +2,7 @@ import Foundation
 
 class Cart {
     private var products: [CartProduct] = []
-    private var discounts: [Discount] = []
+    var discounts: [Discount] = []
     
     func addProduct(_ product: CartProduct) {
         

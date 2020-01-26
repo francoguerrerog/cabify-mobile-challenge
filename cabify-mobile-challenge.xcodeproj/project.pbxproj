@@ -34,6 +34,14 @@
 		2D478F7323DCF4480017234B /* DiscountsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D478F7223DCF4480017234B /* DiscountsService.swift */; };
 		2D478F7523DCF45F0017234B /* DiscountsServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D478F7423DCF45F0017234B /* DiscountsServiceMock.swift */; };
 		2D478F7723DCF48D0017234B /* GetCartWithDiscounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D478F7623DCF48D0017234B /* GetCartWithDiscounts.swift */; };
+		2D9F6C5323DE06160042C770 /* DiscountsServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F6C5223DE06160042C770 /* DiscountsServiceTests.swift */; };
+		2D9F6C5523DE0D200042C770 /* DiscountConditionMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F6C5423DE0D200042C770 /* DiscountConditionMock.swift */; };
+		2D9F6C5723DE0D790042C770 /* DiscountCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F6C5623DE0D790042C770 /* DiscountCondition.swift */; };
+		2D9F6C5B23DE10540042C770 /* Voucher2-for-1ConditionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F6C5A23DE10540042C770 /* Voucher2-for-1ConditionTests.swift */; };
+		2D9F6C5E23DE16360042C770 /* Voucher2_for_1Condition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F6C5D23DE16360042C770 /* Voucher2_for_1Condition.swift */; };
+		2D9F6C6023DE16670042C770 /* CartFactoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F6C5F23DE16670042C770 /* CartFactoryTests.swift */; };
+		2D9F6C6223DE189F0042C770 /* Tshirt3OrMoreConditionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F6C6123DE189F0042C770 /* Tshirt3OrMoreConditionTests.swift */; };
+		2D9F6C6423DE308C0042C770 /* Tshirt3OrMoreCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F6C6323DE308C0042C770 /* Tshirt3OrMoreCondition.swift */; };
 		895078495319FD41D0EEABEA /* Pods_cabify_mobile_challengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 126C20937C29926DC04D624F /* Pods_cabify_mobile_challengeTests.framework */; };
 		FB25663634D5338CE600DCF6 /* Pods_cabify_mobile_challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497A05FCFB38317348ACE011 /* Pods_cabify_mobile_challenge.framework */; };
 /* End PBXBuildFile section */
@@ -81,6 +89,14 @@
 		2D478F7223DCF4480017234B /* DiscountsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountsService.swift; sourceTree = "<group>"; };
 		2D478F7423DCF45F0017234B /* DiscountsServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountsServiceMock.swift; sourceTree = "<group>"; };
 		2D478F7623DCF48D0017234B /* GetCartWithDiscounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCartWithDiscounts.swift; sourceTree = "<group>"; };
+		2D9F6C5223DE06160042C770 /* DiscountsServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountsServiceTests.swift; sourceTree = "<group>"; };
+		2D9F6C5423DE0D200042C770 /* DiscountConditionMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountConditionMock.swift; sourceTree = "<group>"; };
+		2D9F6C5623DE0D790042C770 /* DiscountCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountCondition.swift; sourceTree = "<group>"; };
+		2D9F6C5A23DE10540042C770 /* Voucher2-for-1ConditionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Voucher2-for-1ConditionTests.swift"; sourceTree = "<group>"; };
+		2D9F6C5D23DE16360042C770 /* Voucher2_for_1Condition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Voucher2_for_1Condition.swift; sourceTree = "<group>"; };
+		2D9F6C5F23DE16670042C770 /* CartFactoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartFactoryTests.swift; sourceTree = "<group>"; };
+		2D9F6C6123DE189F0042C770 /* Tshirt3OrMoreConditionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tshirt3OrMoreConditionTests.swift; sourceTree = "<group>"; };
+		2D9F6C6323DE308C0042C770 /* Tshirt3OrMoreCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tshirt3OrMoreCondition.swift; sourceTree = "<group>"; };
 		497A05FCFB38317348ACE011 /* Pods_cabify_mobile_challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cabify_mobile_challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8296721EFC2C3AA1B6B13AEE /* Pods-cabify-mobile-challengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cabify-mobile-challengeTests.debug.xcconfig"; path = "Target Support Files/Pods-cabify-mobile-challengeTests/Pods-cabify-mobile-challengeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		907F433FBD579AEEEE994E1F /* Pods-cabify-mobile-challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cabify-mobile-challenge.debug.xcconfig"; path = "Target Support Files/Pods-cabify-mobile-challenge/Pods-cabify-mobile-challenge.debug.xcconfig"; sourceTree = "<group>"; };
@@ -148,8 +164,10 @@
 			children = (
 				2D478F6723DCE7D00017234B /* Doubles */,
 				2D478F5B23DCCA480017234B /* Core */,
+				2D9F6C5823DE0F7F0042C770 /* Infrastructure */,
 				2D478F4B23DCBE5F0017234B /* Mock.generated.swift */,
 				2D478F3423DCBA990017234B /* Info.plist */,
+				2D9F6C5F23DE16670042C770 /* CartFactoryTests.swift */,
 			);
 			path = "cabify-mobile-challengeTests";
 			sourceTree = "<group>";
@@ -168,6 +186,7 @@
 		2D478F3E23DCBB890017234B /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				2D9F6C5C23DE162B0042C770 /* Condition */,
 				2D478F5F23DCDA1D0017234B /* Repository */,
 			);
 			path = Infrastructure;
@@ -202,6 +221,7 @@
 				2D478F5023DCC2990017234B /* Price.swift */,
 				2D478F5923DCC9570017234B /* Discount.swift */,
 				2D478F6523DCDC830017234B /* DomainError.swift */,
+				2D9F6C5623DE0D790042C770 /* DiscountCondition.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -217,6 +237,7 @@
 		2D478F5B23DCCA480017234B /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				2D9F6C5123DE05F30042C770 /* Service */,
 				2D478F6223DCDB050017234B /* Action */,
 				2D478F5C23DCCA4E0017234B /* Domain */,
 			);
@@ -253,6 +274,7 @@
 			children = (
 				2D478F6823DCE7DF0017234B /* CartRepositoryMock.swift */,
 				2D478F7423DCF45F0017234B /* DiscountsServiceMock.swift */,
+				2D9F6C5423DE0D200042C770 /* DiscountConditionMock.swift */,
 			);
 			path = Doubles;
 			sourceTree = "<group>";
@@ -273,6 +295,40 @@
 				2D478F7223DCF4480017234B /* DiscountsService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		2D9F6C5123DE05F30042C770 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				2D9F6C5223DE06160042C770 /* DiscountsServiceTests.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		2D9F6C5823DE0F7F0042C770 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				2D9F6C5923DE0F970042C770 /* Condition */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		2D9F6C5923DE0F970042C770 /* Condition */ = {
+			isa = PBXGroup;
+			children = (
+				2D9F6C5A23DE10540042C770 /* Voucher2-for-1ConditionTests.swift */,
+				2D9F6C6123DE189F0042C770 /* Tshirt3OrMoreConditionTests.swift */,
+			);
+			path = Condition;
+			sourceTree = "<group>";
+		};
+		2D9F6C5C23DE162B0042C770 /* Condition */ = {
+			isa = PBXGroup;
+			children = (
+				2D9F6C5D23DE16360042C770 /* Voucher2_for_1Condition.swift */,
+				2D9F6C6323DE308C0042C770 /* Tshirt3OrMoreCondition.swift */,
+			);
+			path = Condition;
 			sourceTree = "<group>";
 		};
 		88F8D7E683EC015B43A5CCB6 /* Pods */ = {
@@ -482,7 +538,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D478F7323DCF4480017234B /* DiscountsService.swift in Sources */,
+				2D9F6C5723DE0D790042C770 /* DiscountCondition.swift in Sources */,
 				2D478F5423DCC2FB0017234B /* CartRepository.swift in Sources */,
+				2D9F6C5E23DE16360042C770 /* Voucher2_for_1Condition.swift in Sources */,
 				2D478F1C23DCBA960017234B /* AppDelegate.swift in Sources */,
 				2D478F5A23DCC9570017234B /* Discount.swift in Sources */,
 				2D478F5123DCC2990017234B /* Price.swift in Sources */,
@@ -495,6 +553,7 @@
 				2D478F7723DCF48D0017234B /* GetCartWithDiscounts.swift in Sources */,
 				2D478F4723DCBBD20017234B /* MainViewController.swift in Sources */,
 				2D478F5623DCC3050017234B /* CartProduct.swift in Sources */,
+				2D9F6C6423DE308C0042C770 /* Tshirt3OrMoreCondition.swift in Sources */,
 				2D478F4923DCBBD20017234B /* MainViewModel.swift in Sources */,
 				2D478F6C23DCE8290017234B /* AddProductToCart.swift in Sources */,
 				2D478F6623DCDC830017234B /* DomainError.swift in Sources */,
@@ -506,11 +565,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D9F6C5523DE0D200042C770 /* DiscountConditionMock.swift in Sources */,
 				2D478F4C23DCBE5F0017234B /* Mock.generated.swift in Sources */,
+				2D9F6C5323DE06160042C770 /* DiscountsServiceTests.swift in Sources */,
 				2D478F7023DCEEB60017234B /* GetCartWithDiscountsTests.swift in Sources */,
 				2D478F5E23DCCA620017234B /* CartTests.swift in Sources */,
+				2D9F6C6223DE189F0042C770 /* Tshirt3OrMoreConditionTests.swift in Sources */,
 				2D478F6423DCDB220017234B /* AddProductToCartTests.swift in Sources */,
+				2D9F6C6023DE16670042C770 /* CartFactoryTests.swift in Sources */,
 				2D478F7523DCF45F0017234B /* DiscountsServiceMock.swift in Sources */,
+				2D9F6C5B23DE10540042C770 /* Voucher2-for-1ConditionTests.swift in Sources */,
 				2D478F6923DCE7DF0017234B /* CartRepositoryMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

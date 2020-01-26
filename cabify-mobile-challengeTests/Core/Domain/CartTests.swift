@@ -4,11 +4,10 @@ import XCTest
 
 class CartTests: XCTestCase {
     
-    private var cart: Cart!
-    
     private let voucher = Product(code: "VOUCHER", name: "Cabify Voucher", price: Price(amount: 5.00, currency: .Euro))
     private let tshirt = Product(code: "TSHIRT", name: "Cabify T-Shirt", price: Price(amount: 20.00, currency: .Euro))
     private let mug = Product(code: "MUG", name: "Cabify Coffee Mug", price: Price(amount: 7.50, currency: .Euro))
+    private var cart: Cart!
     
     func test_addFirstProduct() {
         givenACart()

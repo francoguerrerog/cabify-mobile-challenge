@@ -6,6 +6,7 @@ import SwiftyMocky
 @testable import cabify_mobile_challenge
 
 class AddProductToCartTests: XCTestCase {
+    
     private let voucher = Product(code: "VOUCHER", name: "Cabify Voucher", price: Price(amount: 5.00, currency: .Euro))
     private let cartRepository = CartRepositoryMock()
     private var addProductToCart: AddProductToCart!
