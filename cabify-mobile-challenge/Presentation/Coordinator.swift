@@ -24,7 +24,8 @@ class CoordinatorDefault {
     }
     
     private func createMainViewController() -> MainViewController {
-        let viewModel = MainViewModel()
+        let productsService = ApiProductsService()
+        let viewModel = MainViewModel(productsService: productsService)
         return MainViewController(viewModel: viewModel)
     }
     

@@ -21,6 +21,7 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
 
         bindViewModel()
+        viewModel.viewDidLoad()
     }
 
     private func bindViewModel() {
