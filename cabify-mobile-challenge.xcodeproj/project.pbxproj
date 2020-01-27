@@ -48,6 +48,11 @@
 		2D9F6C6E23DE347E0042C770 /* ApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F6C6D23DE347E0042C770 /* ApiError.swift */; };
 		2D9F6C7123DE34CC0042C770 /* ProductsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F6C7023DE34CC0042C770 /* ProductsResponse.swift */; };
 		2D9F6C7323DE37100042C770 /* ProductResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F6C7223DE37100042C770 /* ProductResponse.swift */; };
+		2D9F6C7523DE38720042C770 /* FindProductsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F6C7423DE38720042C770 /* FindProductsTests.swift */; };
+		2D9F6C7723DE6CAD0042C770 /* FindProducts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F6C7623DE6CAD0042C770 /* FindProducts.swift */; };
+		2D9F6C7923DE6CE80042C770 /* ProductsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F6C7823DE6CE80042C770 /* ProductsRepository.swift */; };
+		2D9F6C7B23DE6D060042C770 /* ProductsServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F6C7A23DE6D060042C770 /* ProductsServiceMock.swift */; };
+		2D9F6C7D23DE6D1E0042C770 /* ProductsRepositoryMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9F6C7C23DE6D1E0042C770 /* ProductsRepositoryMock.swift */; };
 		895078495319FD41D0EEABEA /* Pods_cabify_mobile_challengeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 126C20937C29926DC04D624F /* Pods_cabify_mobile_challengeTests.framework */; };
 		FB25663634D5338CE600DCF6 /* Pods_cabify_mobile_challenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 497A05FCFB38317348ACE011 /* Pods_cabify_mobile_challenge.framework */; };
 /* End PBXBuildFile section */
@@ -109,6 +114,11 @@
 		2D9F6C6D23DE347E0042C770 /* ApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiError.swift; sourceTree = "<group>"; };
 		2D9F6C7023DE34CC0042C770 /* ProductsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsResponse.swift; sourceTree = "<group>"; };
 		2D9F6C7223DE37100042C770 /* ProductResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductResponse.swift; sourceTree = "<group>"; };
+		2D9F6C7423DE38720042C770 /* FindProductsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindProductsTests.swift; sourceTree = "<group>"; };
+		2D9F6C7623DE6CAD0042C770 /* FindProducts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindProducts.swift; sourceTree = "<group>"; };
+		2D9F6C7823DE6CE80042C770 /* ProductsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsRepository.swift; sourceTree = "<group>"; };
+		2D9F6C7A23DE6D060042C770 /* ProductsServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsServiceMock.swift; sourceTree = "<group>"; };
+		2D9F6C7C23DE6D1E0042C770 /* ProductsRepositoryMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsRepositoryMock.swift; sourceTree = "<group>"; };
 		497A05FCFB38317348ACE011 /* Pods_cabify_mobile_challenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_cabify_mobile_challenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8296721EFC2C3AA1B6B13AEE /* Pods-cabify-mobile-challengeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cabify-mobile-challengeTests.debug.xcconfig"; path = "Target Support Files/Pods-cabify-mobile-challengeTests/Pods-cabify-mobile-challengeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		907F433FBD579AEEEE994E1F /* Pods-cabify-mobile-challenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-cabify-mobile-challenge.debug.xcconfig"; path = "Target Support Files/Pods-cabify-mobile-challenge/Pods-cabify-mobile-challenge.debug.xcconfig"; sourceTree = "<group>"; };
@@ -246,6 +256,7 @@
 			isa = PBXGroup;
 			children = (
 				2D478F5323DCC2FB0017234B /* CartRepository.swift */,
+				2D9F6C7823DE6CE80042C770 /* ProductsRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -281,6 +292,7 @@
 			children = (
 				2D478F6323DCDB220017234B /* AddProductToCartTests.swift */,
 				2D478F6F23DCEEB60017234B /* GetCartWithDiscountsTests.swift */,
+				2D9F6C7423DE38720042C770 /* FindProductsTests.swift */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -291,6 +303,8 @@
 				2D478F6823DCE7DF0017234B /* CartRepositoryMock.swift */,
 				2D478F7423DCF45F0017234B /* DiscountsServiceMock.swift */,
 				2D9F6C5423DE0D200042C770 /* DiscountConditionMock.swift */,
+				2D9F6C7A23DE6D060042C770 /* ProductsServiceMock.swift */,
+				2D9F6C7C23DE6D1E0042C770 /* ProductsRepositoryMock.swift */,
 			);
 			path = Doubles;
 			sourceTree = "<group>";
@@ -301,6 +315,7 @@
 				2D478F6B23DCE8290017234B /* AddProductToCart.swift */,
 				2D478F6D23DCE9300017234B /* CreateCart.swift */,
 				2D478F7623DCF48D0017234B /* GetCartWithDiscounts.swift */,
+				2D9F6C7623DE6CAD0042C770 /* FindProducts.swift */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -595,6 +610,7 @@
 				2D478F6E23DCE9300017234B /* CreateCart.swift in Sources */,
 				2D478F7723DCF48D0017234B /* GetCartWithDiscounts.swift in Sources */,
 				2D9F6C7323DE37100042C770 /* ProductResponse.swift in Sources */,
+				2D9F6C7923DE6CE80042C770 /* ProductsRepository.swift in Sources */,
 				2D478F4723DCBBD20017234B /* MainViewController.swift in Sources */,
 				2D478F5623DCC3050017234B /* CartProduct.swift in Sources */,
 				2D9F6C6423DE308C0042C770 /* Tshirt3OrMoreCondition.swift in Sources */,
@@ -605,6 +621,7 @@
 				2D9F6C7123DE34CC0042C770 /* ProductsResponse.swift in Sources */,
 				2D478F4F23DCC21A0017234B /* Product.swift in Sources */,
 				2D9F6C6E23DE347E0042C770 /* ApiError.swift in Sources */,
+				2D9F6C7723DE6CAD0042C770 /* FindProducts.swift in Sources */,
 				2D9F6C6623DE337D0042C770 /* ProductsService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -615,15 +632,18 @@
 			files = (
 				2D9F6C5523DE0D200042C770 /* DiscountConditionMock.swift in Sources */,
 				2D478F4C23DCBE5F0017234B /* Mock.generated.swift in Sources */,
+				2D9F6C7523DE38720042C770 /* FindProductsTests.swift in Sources */,
 				2D9F6C5323DE06160042C770 /* DiscountsServiceTests.swift in Sources */,
 				2D478F7023DCEEB60017234B /* GetCartWithDiscountsTests.swift in Sources */,
 				2D478F5E23DCCA620017234B /* CartTests.swift in Sources */,
 				2D9F6C6223DE189F0042C770 /* Tshirt3OrMoreConditionTests.swift in Sources */,
 				2D478F6423DCDB220017234B /* AddProductToCartTests.swift in Sources */,
+				2D9F6C7B23DE6D060042C770 /* ProductsServiceMock.swift in Sources */,
 				2D9F6C6023DE16670042C770 /* CartFactoryTests.swift in Sources */,
 				2D478F7523DCF45F0017234B /* DiscountsServiceMock.swift in Sources */,
 				2D9F6C5B23DE10540042C770 /* Voucher2-for-1ConditionTests.swift in Sources */,
 				2D478F6923DCE7DF0017234B /* CartRepositoryMock.swift in Sources */,
+				2D9F6C7D23DE6D1E0042C770 /* ProductsRepositoryMock.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
