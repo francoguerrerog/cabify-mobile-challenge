@@ -29,7 +29,7 @@ class CartViewModel {
     }
     
     private func emitProducts(_ cart: Cart) {
-        productsSubject.onNext(cart.getProducts())
+        productsSubject.onNext(cart.products)
     }
     
     private func emitDiscounts(_ cart: Cart) {
@@ -46,7 +46,7 @@ class CartViewModel {
     
     private func createSubtotal(_ cart: Cart) -> Total {
         let initialSubtotal = Price(amount: 0, currency: .Euro)
-        let subtotal = cart.getProducts().reduce(initialSubtotal) { (price, product) -> Price in
+        let subtotal = cart.products.reduce(initialSubtotal) { (price, product) -> Price in
             var resultAmount = price.amount
             resultAmount += Double(product.quantity) * product.product.price.amount
             return Price(amount: resultAmount, currency: price.currency)

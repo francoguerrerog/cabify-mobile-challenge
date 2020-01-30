@@ -39,14 +39,14 @@ class CartTests: XCTestCase {
     }
     
     private func thenAddFirstProduct() {
-        let products = cart.getProducts()
+        let products = cart.products
         XCTAssertEqual(products.count, 1)
         XCTAssertEqual(products.first?.quantity, 1)
         XCTAssertEqual(products.first?.product.code, voucher.code)
     }
     
     private func thenAddSameProductQuantity() {
-        let products = cart.getProducts()
+        let products = cart.products
         XCTAssertEqual(products.count, 1)
         XCTAssertEqual(products.first?.quantity, 3)
         XCTAssertEqual(products.first?.product.code, voucher.code)

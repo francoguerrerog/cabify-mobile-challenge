@@ -7,7 +7,7 @@ class Tshirt3OrMoreCondition: DiscountCondition {
     private let PRICE_WHEN_DISCOUNT = 19.0
     
     func evaluate(_ cart: Cart) -> Discount? {
-        let products = cart.getProducts().filter{ $0.product.code == TSHIRT_CODE }
+        let products = cart.products.filter{ $0.product.code == TSHIRT_CODE }
         guard let tshirts = products.first else { return nil }
         guard tshirts.quantity > 2 else { return nil }
         

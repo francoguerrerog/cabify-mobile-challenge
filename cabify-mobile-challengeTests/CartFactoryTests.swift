@@ -43,4 +43,9 @@ struct CartFactoryTests {
         let products = Products(products: [voucher, tshirt, mug])
         return products
     }
+    
+    public static func createCartProduct() -> CartProduct {
+        let voucher = Product(code: "VOUCHER", name: "Cabify Voucher", price: Price(amount: 5.00, currency: .Euro))
+        return CartProduct(product: voucher, quantity: 3)
+    }
 }

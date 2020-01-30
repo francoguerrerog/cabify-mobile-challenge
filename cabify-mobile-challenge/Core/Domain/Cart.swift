@@ -1,7 +1,7 @@
 import Foundation
 
 class Cart {
-    private var products: [CartProduct] = []
+    private(set) var products: [CartProduct] = []
     var discounts: [Discount] = []
     
     func addProduct(_ product: CartProduct) {
@@ -15,7 +15,7 @@ class Cart {
         products[indexProduct].addQuantity(product.quantity)
     }
     
-    func getProducts() -> [CartProduct] {
-        return products
+    func removeProduct(_ product: CartProduct) {
+        products = products.filter{ $0.product.code == product.product.code && $0.quantity == product.quantity }
     }
 }
