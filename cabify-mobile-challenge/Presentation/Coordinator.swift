@@ -1,7 +1,10 @@
 import Foundation
 import UIKit
+import RxSwift
 
 protocol Coordinator {
+    func goToProducts()
+    func goToCart()
 }
 
 class CoordinatorDefault {
@@ -9,28 +12,56 @@ class CoordinatorDefault {
 
     private var viewNavigation: UINavigationController?
     
+    private let cart = Cart()
+    
     init(window: UIWindow) {
         self.window = window
     }
     
     func start() {
-        let viewController = createMainViewController()
+        let viewController = createProductsViewController()
         let navigationController = UINavigationController(rootViewController: viewController)
         
         window.rootViewController = navigationController
         window.makeKeyAndVisible()
         
         viewNavigation = navigationController
+        
+        createCart()
     }
     
-    private func createMainViewController() -> MainViewController {
-        let productsService = ApiProductsService()
-        let viewModel = MainViewModel(productsService: productsService)
-        return MainViewController(viewModel: viewModel)
+    private func createCart() {
+        let createCartAction = Factory.createCartActionDefault()
+        createCartAction.execute(cart)
+    }
+    
+    private func createCartViewController() -> CartViewController {
+        let getCartWithDiscounts = Factory.createGetCartWithDiscountsDefault()
+        let viewModel = CartViewModel(getCartWithDiscounts)
+        return CartViewController(viewModel: viewModel)
+    }
+    
+    private func createProductsViewController() -> ProductsViewController {
+        let findProducts = Factory.createFindProductsDefault()
+        let addProductToCart = Factory.createAddProductToCartDefault()
+        let viewModel = ProductsViewModel(self, findProducts, addProductToCart)
+        return ProductsViewController(viewModel: viewModel)
     }
     
     private func pushViewController(viewController: UIViewController) {
         guard let navigation = viewNavigation else { return }
         navigation.pushViewController(viewController, animated: true)
+    }
+}
+
+extension CoordinatorDefault: Coordinator {
+    func goToProducts() {
+        let viewController = createProductsViewController()
+        pushViewController(viewController: viewController)
+    }
+    
+    func goToCart() {
+        let viewController = createCartViewController()
+        pushViewController(viewController: viewController)
     }
 }

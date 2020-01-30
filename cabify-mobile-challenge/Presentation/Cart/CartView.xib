@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="CartView" customModule="cabify_mobile_challenge" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Uou-vO-tZ8">
+                    <rect key="frame" x="0.0" y="44" width="414" height="743"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </tableView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0au-bK-ICi">
+                    <rect key="frame" x="41.5" y="807" width="331" height="45"/>
+                    <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="45" id="sB9-ct-W46"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                    <state key="normal" title="Checkout">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Uou-vO-tZ8" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="0fC-Er-Z6M"/>
+                <constraint firstItem="0au-bK-ICi" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="0.8" id="Ex0-wa-6bV"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Uou-vO-tZ8" secondAttribute="trailing" id="GiO-Vw-9Wc"/>
+                <constraint firstItem="0au-bK-ICi" firstAttribute="top" secondItem="Uou-vO-tZ8" secondAttribute="bottom" constant="20" id="Iu0-9N-vUy"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="0au-bK-ICi" secondAttribute="bottom" constant="10" id="Rq0-dA-EN2"/>
+                <constraint firstItem="Uou-vO-tZ8" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="X3r-Hy-ztW"/>
+                <constraint firstItem="0au-bK-ICi" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="zBB-DC-bH9"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="checkOutButton" destination="0au-bK-ICi" id="vdr-el-xFy"/>
+                <outlet property="tableView" destination="Uou-vO-tZ8" id="AbA-f9-iUK"/>
+            </connections>
+            <point key="canvasLocation" x="134.78260869565219" y="126.5625"/>
+        </view>
+    </objects>
+</document>
