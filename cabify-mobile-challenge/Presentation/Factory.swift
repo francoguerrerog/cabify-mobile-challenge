@@ -4,7 +4,7 @@ struct Factory {
     
     private static let cartRepository = InMemoryCartRepository()
     private static let productsService = ApiProductsService()
-    private static let productsRepository = InMemoryProductsRepository()
+    private static let productsRepository = UserDefaultsProductsRepository()
     
     public static func createCartActionDefault() -> CreateCartDefault {
         return CreateCartDefault(cartRepository)

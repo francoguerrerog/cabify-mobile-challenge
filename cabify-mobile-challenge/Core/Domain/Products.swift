@@ -1,5 +1,5 @@
 import Foundation
 
-struct Products {
+struct Products: Codable {
     let products: [Product]
 }

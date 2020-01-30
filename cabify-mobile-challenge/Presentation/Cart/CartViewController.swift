@@ -10,6 +10,7 @@ class CartViewController: UIViewController {
     
     private var productsData: [CartProduct] = []
     private var discountsData: [Discount] = []
+    private var totalsData: [Total] = []
 
     init(viewModel: CartViewModel) {
         self.viewModel = viewModel
@@ -44,6 +45,7 @@ class CartViewController: UIViewController {
     private func bindViewModel() {
         bindProducts()
         bindDiscounts()
+        bindTotals()
     }
     
     private func bindProducts() {
@@ -71,11 +73,24 @@ class CartViewController: UIViewController {
         discountsData = discounts
         mainView.tableView.reloadSections(IndexSet(arrayLiteral: 1), with: .automatic)
     }
+    
+    private func bindTotals() {
+        viewModel.output.totals
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] totals in
+                self?.reloadTotals(totals)
+            }).disposed(by: disposeBag)
+    }
+    
+    private func reloadTotals(_ totals: [Total]) {
+        totalsData = totals
+        mainView.tableView.reloadSections(IndexSet(arrayLiteral: 2), with: .automatic)
+    }
 }
 
 extension CartViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -84,6 +99,8 @@ extension CartViewController: UITableViewDataSource {
             return productsData.count
         case 1:
             return discountsData.count
+        case 2:
+            return totalsData.count
         default:
             return 0
         }
@@ -97,6 +114,8 @@ extension CartViewController: UITableViewDataSource {
             configureProductCell(indexRow: indexPath.row, cell: cell!)
         case 1:
             configureDiscountCell(indexRow: indexPath.row, cell: cell!)
+        case 2:
+            configureTotalCell(indexRow: indexPath.row, cell: cell!)
         default:
             break
         }
@@ -118,11 +137,24 @@ extension CartViewController: UITableViewDataSource {
         cell.titleLabel.text = data.name
         cell.amountLabel.text = "\(data.price.amount)"
     }
+    
+    private func configureTotalCell(indexRow: Int, cell: ItemCellView) {
+        let data = totalsData[indexRow]
+        
+        cell.titleLabel.text = data.name
+        cell.amountLabel.text = "\(data.amount.amount)"
+        cell.itemImage.image = nil
+    }
 }
 
 extension CartViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70.0
+        switch indexPath.section {
+        case 2:
+            return 40.0
+        default:
+            return 70.0
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -130,16 +162,30 @@ extension CartViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        if section == 0 && productsData.count == 0 {
-            return nil
-        }
-        if section == 1 && discountsData.count == 0 {
-            return nil
-        }
         
-        let leftText = section == 0 ? "ITEMS" : "DISCOUNTS"
-        let rightText = section == 0 ? "PRICE" : ""
-        let quantityText = section == 0 ? "UNIT" : ""
+        var leftText = ""
+        var rightText = ""
+        var quantityText = ""
+        
+        switch section {
+        case 0:
+            if productsData.count == 0 { return nil }
+            leftText = "ITEMS"
+            rightText = "PRICE"
+            quantityText = "UNIT"
+        case 1:
+            if discountsData.count == 0 { return nil }
+            leftText = "DISCOUNTS"
+            rightText = ""
+            quantityText = ""
+        case 2:
+            if totalsData.count == 0 { return nil }
+            leftText = "TOTALS"
+            rightText = ""
+            quantityText = ""
+        default:
+            break
+        }
         
         let frame = CGRect(x: 0, y: 0, width: view.bounds.width, height: 42)
         let headerView = HeaderView(frame: frame)

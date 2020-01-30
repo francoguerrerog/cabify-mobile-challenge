@@ -16,22 +16,22 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="item" translatesAutoresizingMaskIntoConstraints="NO" id="qeF-sg-3Os">
-                        <rect key="frame" x="-412.5" y="5" width="1170" height="202"/>
+                        <rect key="frame" x="-412.5" y="5" width="1170" height="161.5"/>
                     </imageView>
                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q5F-2r-gXN">
-                        <rect key="frame" x="150" y="217" width="45" height="21.5"/>
+                        <rect key="frame" x="150" y="171.5" width="45" height="21.5"/>
                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wBL-8W-516">
-                        <rect key="frame" x="172.5" y="258.5" width="0.0" height="0.0"/>
+                        <rect key="frame" x="172.5" y="218" width="0.0" height="0.0"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap item to add to cart" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fZ2-ZN-wuo">
-                        <rect key="frame" x="96.5" y="268.5" width="152.5" height="18"/>
+                        <rect key="frame" x="96.5" y="228" width="152.5" height="18"/>
                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -39,14 +39,14 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="qeF-sg-3Os" firstAttribute="centerX" secondItem="JwH-WG-8IN" secondAttribute="centerX" id="1Ny-ba-tOH"/>
-                    <constraint firstItem="qeF-sg-3Os" firstAttribute="height" secondItem="JwH-WG-8IN" secondAttribute="height" multiplier="0.5" id="ED3-aR-rqs"/>
+                    <constraint firstItem="qeF-sg-3Os" firstAttribute="height" secondItem="JwH-WG-8IN" secondAttribute="height" multiplier="0.4" id="ED3-aR-rqs"/>
                     <constraint firstItem="fZ2-ZN-wuo" firstAttribute="centerX" secondItem="JwH-WG-8IN" secondAttribute="centerX" id="RU1-dX-qih"/>
-                    <constraint firstItem="wBL-8W-516" firstAttribute="top" secondItem="q5F-2r-gXN" secondAttribute="bottom" constant="20" id="TOY-eY-Gqk"/>
+                    <constraint firstItem="wBL-8W-516" firstAttribute="top" secondItem="q5F-2r-gXN" secondAttribute="bottom" constant="25" id="TOY-eY-Gqk"/>
                     <constraint firstItem="q5F-2r-gXN" firstAttribute="centerX" secondItem="JwH-WG-8IN" secondAttribute="centerX" id="bRp-Dp-kfp"/>
                     <constraint firstItem="wBL-8W-516" firstAttribute="centerX" secondItem="JwH-WG-8IN" secondAttribute="centerX" id="dOt-wN-fpl"/>
                     <constraint firstItem="qeF-sg-3Os" firstAttribute="top" secondItem="JwH-WG-8IN" secondAttribute="top" constant="5" id="vwo-0E-z5V"/>
                     <constraint firstItem="fZ2-ZN-wuo" firstAttribute="top" secondItem="wBL-8W-516" secondAttribute="bottom" constant="10" id="xRn-Qd-yrx"/>
-                    <constraint firstItem="q5F-2r-gXN" firstAttribute="top" secondItem="qeF-sg-3Os" secondAttribute="bottom" constant="10" id="ync-rb-CQP"/>
+                    <constraint firstItem="q5F-2r-gXN" firstAttribute="top" secondItem="qeF-sg-3Os" secondAttribute="bottom" constant="5" id="ync-rb-CQP"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

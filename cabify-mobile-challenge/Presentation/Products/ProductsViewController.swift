@@ -118,7 +118,7 @@ class ProductsViewController: UIViewController {
 
 extension ProductsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 250.0
+        return 240.0
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
