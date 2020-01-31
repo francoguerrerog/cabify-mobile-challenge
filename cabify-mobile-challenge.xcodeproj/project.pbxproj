@@ -46,6 +46,9 @@
 		2D478F7323DCF4480017234B /* DiscountsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D478F7223DCF4480017234B /* DiscountsService.swift */; };
 		2D478F7523DCF45F0017234B /* DiscountsServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D478F7423DCF45F0017234B /* DiscountsServiceMock.swift */; };
 		2D478F7723DCF48D0017234B /* GetCartWithDiscounts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D478F7623DCF48D0017234B /* GetCartWithDiscounts.swift */; };
+		2D57ADF123E4D0C2003FB793 /* Checkout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D57ADF023E4D0C2003FB793 /* Checkout.swift */; };
+		2D57ADF323E4D2DF003FB793 /* CheckoutMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D57ADF223E4D2DF003FB793 /* CheckoutMock.swift */; };
+		2D57ADF623E4D515003FB793 /* Total.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D57ADF523E4D515003FB793 /* Total.swift */; };
 		2D84703F23E23A8A0055A56C /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D84703E23E23A8A0055A56C /* Factory.swift */; };
 		2D84704123E23C860055A56C /* AddProductToCartMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D84704023E23C860055A56C /* AddProductToCartMock.swift */; };
 		2D84704323E244480055A56C /* CoordinatorMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D84704223E244480055A56C /* CoordinatorMock.swift */; };
@@ -133,6 +136,9 @@
 		2D478F7223DCF4480017234B /* DiscountsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountsService.swift; sourceTree = "<group>"; };
 		2D478F7423DCF45F0017234B /* DiscountsServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscountsServiceMock.swift; sourceTree = "<group>"; };
 		2D478F7623DCF48D0017234B /* GetCartWithDiscounts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetCartWithDiscounts.swift; sourceTree = "<group>"; };
+		2D57ADF023E4D0C2003FB793 /* Checkout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checkout.swift; sourceTree = "<group>"; };
+		2D57ADF223E4D2DF003FB793 /* CheckoutMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutMock.swift; sourceTree = "<group>"; };
+		2D57ADF523E4D515003FB793 /* Total.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Total.swift; sourceTree = "<group>"; };
 		2D84703E23E23A8A0055A56C /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		2D84704023E23C860055A56C /* AddProductToCartMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddProductToCartMock.swift; sourceTree = "<group>"; };
 		2D84704223E244480055A56C /* CoordinatorMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorMock.swift; sourceTree = "<group>"; };
@@ -191,6 +197,7 @@
 		2D02288623DFB00100940545 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
+				2D57ADF423E4D50A003FB793 /* ViewData */,
 				2D02289823E0E12500940545 /* View */,
 				2D02289023DFB05100940545 /* CartViewController.swift */,
 				2D02289123DFB05100940545 /* CartView.swift */,
@@ -407,6 +414,7 @@
 				2D84704223E244480055A56C /* CoordinatorMock.swift */,
 				2D84704623E248000055A56C /* GetCartWithDiscountsMock.swift */,
 				2DC16A9823E3B1CD00EF4F5C /* DeleteProductsFromCartMock.swift */,
+				2D57ADF223E4D2DF003FB793 /* CheckoutMock.swift */,
 			);
 			path = Doubles;
 			sourceTree = "<group>";
@@ -419,6 +427,7 @@
 				2D478F7623DCF48D0017234B /* GetCartWithDiscounts.swift */,
 				2D9F6C7623DE6CAD0042C770 /* FindProducts.swift */,
 				2DC16A9623E3A4E600EF4F5C /* DeleteProductsFromCart.swift */,
+				2D57ADF023E4D0C2003FB793 /* Checkout.swift */,
 			);
 			path = Action;
 			sourceTree = "<group>";
@@ -430,6 +439,14 @@
 				2D9F6C6523DE337D0042C770 /* ProductsService.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		2D57ADF423E4D50A003FB793 /* ViewData */ = {
+			isa = PBXGroup;
+			children = (
+				2D57ADF523E4D515003FB793 /* Total.swift */,
+			);
+			path = ViewData;
 			sourceTree = "<group>";
 		};
 		2D9F6C5123DE05F30042C770 /* Service */ = {
@@ -707,6 +724,8 @@
 				2D9F6C5E23DE16360042C770 /* Voucher2_for_1Condition.swift in Sources */,
 				2D0228A223E0E1C000940545 /* ProductCellView.swift in Sources */,
 				2D478F1C23DCBA960017234B /* AppDelegate.swift in Sources */,
+				2D57ADF123E4D0C2003FB793 /* Checkout.swift in Sources */,
+				2D57ADF623E4D515003FB793 /* Total.swift in Sources */,
 				2D478F5A23DCC9570017234B /* Discount.swift in Sources */,
 				2D02288D23DFB04200940545 /* ProductsView.swift in Sources */,
 				2D02289423DFB05100940545 /* CartViewController.swift in Sources */,
@@ -764,6 +783,7 @@
 				2D9F6C7B23DE6D060042C770 /* ProductsServiceMock.swift in Sources */,
 				2D9F6C6023DE16670042C770 /* CartFactoryTests.swift in Sources */,
 				2D478F7523DCF45F0017234B /* DiscountsServiceMock.swift in Sources */,
+				2D57ADF323E4D2DF003FB793 /* CheckoutMock.swift in Sources */,
 				2D9F6C5B23DE10540042C770 /* Voucher2-for-1ConditionTests.swift in Sources */,
 				2D84704723E248000055A56C /* GetCartWithDiscountsMock.swift in Sources */,
 				2D478F6923DCE7DF0017234B /* CartRepositoryMock.swift in Sources */,

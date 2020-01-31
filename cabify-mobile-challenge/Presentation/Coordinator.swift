@@ -5,6 +5,7 @@ import RxSwift
 protocol Coordinator {
     func goToProducts()
     func goToCart()
+    func goToRoot()
 }
 
 class CoordinatorDefault {
@@ -38,7 +39,8 @@ class CoordinatorDefault {
     private func createCartViewController() -> CartViewController {
         let getCartWithDiscounts = Factory.createGetCartWithDiscountsDefault()
         let deleteProductsFromCart = Factory.createDeleteProductsFromCartDefault()
-        let viewModel = CartViewModel(getCartWithDiscounts, deleteProductsFromCart)
+        let checkOut = Factory.createCheckout()
+        let viewModel = CartViewModel(self, getCartWithDiscounts, deleteProductsFromCart, checkOut)
         return CartViewController(viewModel: viewModel)
     }
     
@@ -64,5 +66,10 @@ extension CoordinatorDefault: Coordinator {
     func goToCart() {
         let viewController = createCartViewController()
         pushViewController(viewController: viewController)
+    }
+    
+    func goToRoot() {
+        guard let navigation = viewNavigation else { return }
+        navigation.popToRootViewController(animated: true)
     }
 }

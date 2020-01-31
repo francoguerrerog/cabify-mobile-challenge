@@ -8,26 +8,36 @@ class CartViewModel {
         let discounts: Observable<[Discount]>
         let totals: Observable<[Total]>
         let showAddedToCartAlert: Observable<Void>
+        let checkoutCompleted: Observable<Void>
     }
     
     public lazy var output = Output(products: productsSubject.asObservable(),
                                     discounts: discountsSubject.asObservable(),
                                     totals: totalsSubject.asObservable(),
-                                    showAddedToCartAlert: showAddedToCartAlertSubject.asObservable())
+                                    showAddedToCartAlert: showAddedToCartAlertSubject.asObservable(),
+                                    checkoutCompleted: checkoutCompletedSubject.asObservable())
     
     private let productsSubject = BehaviorSubject<[CartProduct]>(value: [])
     private let discountsSubject = BehaviorSubject<[Discount]>(value: [])
     private let totalsSubject = BehaviorSubject<[Total]>(value: [])
     private let showAddedToCartAlertSubject = PublishSubject<Void>()
+    private let checkoutCompletedSubject = PublishSubject<Void>()
     
+    private let coordinator: Coordinator
     private let getCartWithDiscounts: GetCartWithDiscounts
     private let deleteProductsFromCart: DeleteProductsFromCart
+    private let checkout: Checkout
     
     private let disposeBag = DisposeBag()
     
-    init(_ getCartWithDiscounts: GetCartWithDiscounts, _ deleteProductsFromCart: DeleteProductsFromCart) {
+    init(_ coordinator: Coordinator,
+         _ getCartWithDiscounts: GetCartWithDiscounts,
+         _ deleteProductsFromCart: DeleteProductsFromCart,
+         _ checkout: Checkout) {
+        self.coordinator = coordinator
         self.getCartWithDiscounts = getCartWithDiscounts
         self.deleteProductsFromCart = deleteProductsFromCart
+        self.checkout = checkout
     }
     
     private func emitProducts(_ cart: Cart) {
@@ -105,9 +115,15 @@ extension CartViewModel {
                 self?.deleteProductFromCart(product)
             }).disposed(by: disposeBag)
     }
-}
-
-struct Total {
-    let name: String
-    let amount: Price
+    
+    func checkOut() {
+        checkout.execute()
+            .subscribe(onCompleted: { [weak self] in
+                self?.checkoutCompletedSubject.onNext(())
+            }).disposed(by: disposeBag)
+    }
+    
+    func finish() {
+        coordinator.goToRoot()
+    }
 }

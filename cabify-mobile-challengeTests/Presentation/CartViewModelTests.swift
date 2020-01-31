@@ -9,6 +9,8 @@ class CartViewModelTests: XCTestCase {
     
     private let getCartWithDiscounts = GetCartWithDiscountsMock()
     private let deleteProductFromCart = DeleteProductsFromCartMock()
+    private let coordinator = CoordinatorMock()
+    private let checkout = CheckoutMock()
     private var viewModel: CartViewModel!
     
     private var scheduler: TestScheduler!
@@ -58,9 +60,18 @@ class CartViewModelTests: XCTestCase {
         thenDeleteProductFromCart()
     }
     
+    func test_checkout() {
+        Given(checkout, .execute(willReturn: .empty()))
+        givenACartWithDiscount()
+        
+        whenCheckOut()
+        
+        Verify(checkout, .once, .execute())
+    }
+    
     private func givenACartWithDiscount() {
         Given(getCartWithDiscounts, .execute(willReturn: .just(CartFactoryTests.createCartWith2Thirts())))
-        viewModel = CartViewModel(getCartWithDiscounts, deleteProductFromCart)
+        viewModel = CartViewModel(coordinator, getCartWithDiscounts, deleteProductFromCart, checkout)
     }
     
     private func givenADeleteProductScenario() {
@@ -75,6 +86,10 @@ class CartViewModelTests: XCTestCase {
     
     private func whenDeleteProduct() {
         viewModel.deleteProduct(0)
+    }
+    
+    private func whenCheckOut() {
+        viewModel.checkOut()
     }
     
     private func thenGetCartWithDiscounts() {

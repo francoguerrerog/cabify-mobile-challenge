@@ -28,6 +28,7 @@ class CartViewController: UIViewController {
         
         setupTitle()
         setupTableView()
+        setupButton()
         bindViewModel()
         viewModel.viewDidLoad()
     }
@@ -41,11 +42,16 @@ class CartViewController: UIViewController {
         mainView.tableView.dataSource = self
         mainView.tableView.register(UINib(nibName: ItemCellView.cellIdentifier, bundle: Bundle(for: type(of: self))), forCellReuseIdentifier: ItemCellView.cellIdentifier)
     }
+    
+    private func setupButton() {
+        mainView.checkOutButton.addTarget(self, action: #selector(checkoutButtonSelected(sender:)), for: .touchUpInside)
+    }
 
     private func bindViewModel() {
         bindProducts()
         bindDiscounts()
         bindTotals()
+        bindCheckoutCompleted()
     }
     
     private func bindProducts() {
@@ -86,40 +92,18 @@ class CartViewController: UIViewController {
         totalsData = totals
         mainView.tableView.reloadSections(IndexSet(arrayLiteral: 2), with: .automatic)
     }
-}
-
-extension CartViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 3
+    
+    private func bindCheckoutCompleted() {
+        viewModel.output.checkoutCompleted
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [weak self] _ in
+                self?.showCheckoutAlert()
+            }).disposed(by: disposeBag)
     }
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return productsData.count
-        case 1:
-            return discountsData.count
-        case 2:
-            return totalsData.count
-        default:
-            return 0
-        }
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: ItemCellView.cellIdentifier, for: indexPath) as? ItemCellView
-        
-        switch indexPath.section {
-        case 0:
-            configureProductCell(indexRow: indexPath.row, cell: cell!)
-        case 1:
-            configureDiscountCell(indexRow: indexPath.row, cell: cell!)
-        case 2:
-            configureTotalCell(indexRow: indexPath.row, cell: cell!)
-        default:
-            break
-        }
-        return cell!
+    @objc
+    private func checkoutButtonSelected(sender: UIButton) {
+        viewModel.checkOut()
     }
     
     private func configureProductCell(indexRow: Int, cell: ItemCellView) {
@@ -157,6 +141,52 @@ extension CartViewController: UITableViewDataSource {
         ac.addAction(delete)
 
         present(ac, animated: true)
+    }
+    
+    private func showCheckoutAlert() {
+        let ac = UIAlertController(title: "Checkout", message: "Your paid has been proccesed!", preferredStyle: .alert)
+        let delete = UIAlertAction(title: "OK", style: .default) { _ in
+            self.viewModel.finish()
+        }
+
+        ac.addAction(delete)
+
+        present(ac, animated: true)
+    }
+}
+
+extension CartViewController: UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        switch section {
+        case 0:
+            return productsData.count
+        case 1:
+            return discountsData.count
+        case 2:
+            return totalsData.count
+        default:
+            return 0
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ItemCellView.cellIdentifier, for: indexPath) as? ItemCellView
+        
+        switch indexPath.section {
+        case 0:
+            configureProductCell(indexRow: indexPath.row, cell: cell!)
+        case 1:
+            configureDiscountCell(indexRow: indexPath.row, cell: cell!)
+        case 2:
+            configureTotalCell(indexRow: indexPath.row, cell: cell!)
+        default:
+            break
+        }
+        return cell!
     }
 }
 

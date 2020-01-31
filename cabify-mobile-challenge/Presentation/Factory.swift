@@ -28,4 +28,8 @@ struct Factory {
     public static func createDeleteProductsFromCartDefault() -> DeleteProductsFromCartDefault {
         return DeleteProductsFromCartDefault(cartRepository)
     }
+    
+    public static func createCheckout() -> CheckoutDefault {
+        return CheckoutDefault(cartRepository)
+    }
 }
