@@ -11,6 +11,7 @@ class ItemCellView: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.selectionStyle = .none
     }
     
     override func prepareForReuse() {

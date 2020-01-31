@@ -24,4 +24,8 @@ struct Factory {
         let discountService = DiscountsServiceDefault([voucherCondition, tshirtCondition])
         return GetCartWithDiscountsDefault(cartRepository, discountService)
     }
+    
+    public static func createDeleteProductsFromCartDefault() -> DeleteProductsFromCartDefault {
+        return DeleteProductsFromCartDefault(cartRepository)
+    }
 }

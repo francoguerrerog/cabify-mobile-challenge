@@ -16,6 +16,6 @@ class Cart {
     }
     
     func removeProduct(_ product: CartProduct) {
-        products = products.filter{ $0.product.code == product.product.code && $0.quantity == product.quantity }
+        products = products.filter{ $0.product.code != product.product.code }
     }
 }

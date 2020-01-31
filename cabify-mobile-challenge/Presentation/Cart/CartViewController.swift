@@ -145,6 +145,19 @@ extension CartViewController: UITableViewDataSource {
         cell.amountLabel.text = "\(data.amount.amount)"
         cell.itemImage.image = nil
     }
+    
+    private func ShowConfirmationProductDelete(index: Int) {
+        let ac = UIAlertController(title: "Delete?", message: "Do you want to delete this product?", preferredStyle: .alert)
+        let cancel = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let delete = UIAlertAction(title: "Delete", style: .default) { _ in
+            self.viewModel.deleteProduct(index)
+        }
+
+        ac.addAction(cancel)
+        ac.addAction(delete)
+
+        present(ac, animated: true)
+    }
 }
 
 extension CartViewController: UITableViewDelegate {
@@ -158,7 +171,12 @@ extension CartViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //viewModel.selectCard(index: indexPath.row)
+        switch indexPath.section {
+        case 0:
+            ShowConfirmationProductDelete(index: indexPath.row)
+        default:
+            break
+        }
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {

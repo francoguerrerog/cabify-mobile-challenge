@@ -37,7 +37,8 @@ class CoordinatorDefault {
     
     private func createCartViewController() -> CartViewController {
         let getCartWithDiscounts = Factory.createGetCartWithDiscountsDefault()
-        let viewModel = CartViewModel(getCartWithDiscounts)
+        let deleteProductsFromCart = Factory.createDeleteProductsFromCartDefault()
+        let viewModel = CartViewModel(getCartWithDiscounts, deleteProductsFromCart)
         return CartViewController(viewModel: viewModel)
     }
     

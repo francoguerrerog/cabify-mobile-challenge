@@ -8,6 +8,7 @@ import RxSwift
 class CartViewModelTests: XCTestCase {
     
     private let getCartWithDiscounts = GetCartWithDiscountsMock()
+    private let deleteProductFromCart = DeleteProductsFromCartMock()
     private var viewModel: CartViewModel!
     
     private var scheduler: TestScheduler!
@@ -49,13 +50,31 @@ class CartViewModelTests: XCTestCase {
         thenEmitDiscounts()
     }
     
+    func test_deleteProduct() {
+        givenADeleteProductScenario()
+        
+        whenDeleteProduct()
+        
+        thenDeleteProductFromCart()
+    }
+    
     private func givenACartWithDiscount() {
         Given(getCartWithDiscounts, .execute(willReturn: .just(CartFactoryTests.createCartWith2Thirts())))
-        viewModel = CartViewModel(getCartWithDiscounts)
+        viewModel = CartViewModel(getCartWithDiscounts, deleteProductFromCart)
+    }
+    
+    private func givenADeleteProductScenario() {
+        givenACartWithDiscount()
+        whenViewDidLoad()
+        Given(deleteProductFromCart, .execute(product: .any, willReturn: .empty()))
     }
     
     private func whenViewDidLoad() {
         viewModel.viewDidLoad()
+    }
+    
+    private func whenDeleteProduct() {
+        viewModel.deleteProduct(0)
     }
     
     private func thenGetCartWithDiscounts() {
@@ -70,5 +89,9 @@ class CartViewModelTests: XCTestCase {
     private func thenEmitDiscounts() {
         let events = discountsObserver.events
         XCTAssertEqual(events.count, 2)
+    }
+    
+    private func thenDeleteProductFromCart() {
+        Verify(deleteProductFromCart, .once, .execute(product: .any))
     }
 }

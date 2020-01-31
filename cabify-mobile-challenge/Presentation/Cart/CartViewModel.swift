@@ -21,11 +21,13 @@ class CartViewModel {
     private let showAddedToCartAlertSubject = PublishSubject<Void>()
     
     private let getCartWithDiscounts: GetCartWithDiscounts
+    private let deleteProductsFromCart: DeleteProductsFromCart
     
     private let disposeBag = DisposeBag()
     
-    init(_ getCartWithDiscounts: GetCartWithDiscounts) {
+    init(_ getCartWithDiscounts: GetCartWithDiscounts, _ deleteProductsFromCart: DeleteProductsFromCart) {
         self.getCartWithDiscounts = getCartWithDiscounts
+        self.deleteProductsFromCart = deleteProductsFromCart
     }
     
     private func emitProducts(_ cart: Cart) {
@@ -69,6 +71,20 @@ class CartViewModel {
         let total = Price(amount: totalAmount, currency: subtotal.amount.currency)
         return Total(name: "Total", amount: total)
     }
+    
+    private func productAtIndex(_ products: [CartProduct], _ index: Int) -> CartProduct? {
+        if index >= 0 && index < products.count {
+            return products[index]
+        }
+        return nil
+    }
+    
+    private func deleteProductFromCart(_ product: CartProduct) {
+        deleteProductsFromCart
+            .execute(product: product).subscribe(onCompleted: { [weak self] in
+                self?.viewDidLoad()
+            }).disposed(by: disposeBag)
+    }
 }
 
 extension CartViewModel {
@@ -78,6 +94,15 @@ extension CartViewModel {
                 self?.emitProducts(cart)
                 self?.emitDiscounts(cart)
                 self?.emitTotals(cart)
+            }).disposed(by: disposeBag)
+    }
+    
+    func deleteProduct(_ index: Int) {
+        output.products
+            .take(1)
+            .subscribe(onNext: { [weak self] products in
+                guard let product = self?.productAtIndex(products, index) else { return }
+                self?.deleteProductFromCart(product)
             }).disposed(by: disposeBag)
     }
 }
